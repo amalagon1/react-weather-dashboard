@@ -1,38 +1,72 @@
-.App {
-  text-align: center;
+:root{
+  --sunny:linear-gradient(0deg, rgba(155,45,253,1) 0%, rgba(34,193,195,1) 100%);
+  --rainy: linear-gradient(0deg, rgba(116,115,117,1) 0%, rgba(233,238,238,1) 100%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap');
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.App{
+  height: 100vh;
+  background: var(--sunny);
+  font-family: public sans, sans-serif;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+header {
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mobile-nav{
+  width: 100%;
+  background-color: pink;
+}
+
+.mobile-nav_items{
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  /* gap: 12rem; */
+}
+
+.add {
+  font-size: 2rem;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.search{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  height: 30px;
+ 
+  vertical-align: middle;
+  margin-left: 5px;
+  /* padding-left: 10px; */
+}
+.line {
+  background-color: black;
+  height: 2px;
+  width: 20px;
+}
+
+.card{
+  height: 250px;
+  width: 250px;
+  margin: 20px auto;
+  border-radius: 8px;
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.226), rgba(255,255,255,0.3));
+  border: solid white;
 }
