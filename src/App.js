@@ -7,7 +7,8 @@ import './App.css';
 function App() {
 
   const [city, setCity] = useState("");
-  const [data, setData] = useState()
+  const [data, setData] = useState();
+  const [addCity, setAddCity] = useState(false);
 
   const currentUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
   const fiveDayUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=";
@@ -24,11 +25,19 @@ function App() {
         console.log(data)
         setData(data)
       })
+    // setCity(e.target.value)
+    setAddCity(false);
   }
 
   return (
     <div className="App">
-      <Header city={city} setCity={setCity} displayCurrent={displayCurrent} />
+      <div className={addCity ? "backdrop" : "backdrop=hide"}></div>
+      <Header city={city}
+        setCity={setCity}
+        addCity={addCity}
+        setAddCity={setAddCity}
+        displayCurrent={displayCurrent} />
+      {addCity && <Search setCity={setCity} displayCurrent={displayCurrent} />}
       {data && <Current data={data} city={city} />}
     </div>
   );

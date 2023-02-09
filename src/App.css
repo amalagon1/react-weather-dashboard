@@ -13,17 +13,32 @@
 .App{
   height: 100vh;
   background: var(--sunny);
+ 
   font-family: public sans, sans-serif;
   color: white;
+  position: relative;
 }
 
 header {
   width: 100%;
 }
+.backdrop {
+position: fixed;
+top: 0;
+left: 0;
+z-index: 5;
+width: 100vw;
+height: 100vh;
+background: rgba(0,0,0,0.5);
+}
+
+.backdrop-hide{
+  display: none;
+}
 
 .mobile-nav{
   width: 100%;
-  background-color: pink;
+  /* background-color: pink; */
 }
 
 .mobile-nav_items{
@@ -43,6 +58,23 @@ header {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.modal {
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none;
+  /* height: 250px; */
+  padding-top:  20px;
+  padding-bottom: 80px;
+  border-radius: 7px;
+  width: 250px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+
 }
 
 .burger {

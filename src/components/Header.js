@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Search from './Search'
 
-const Header = ({ city, setCity, displayCurrent }) => {
+const Header = ({ city, addCity, setAddCity, setCity, displayCurrent }) => {
+
+
+
+    const clickHandler = () => {
+        setAddCity(true)
+    }
     return (
         <header>
             <nav className="mobile-nav">
@@ -11,10 +17,11 @@ const Header = ({ city, setCity, displayCurrent }) => {
                         <div className="line"></div>
                         <div className="line"></div>
                     </div>
-                    <Search
+                    <p onClick={clickHandler} className="add">+</p>
+                    {/* <Search
                         city={city}
                         setCity={setCity}
-                        displayCurrent={displayCurrent} />
+                        displayCurrent={displayCurrent} /> */}
 
                 </div>
             </nav>
