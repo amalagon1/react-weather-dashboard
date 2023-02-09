@@ -24,14 +24,26 @@ function App() {
         let lon = data.coord.lon
         console.log(data)
         setData(data)
+        displayForecast(lat, lon);
       })
     // setCity(e.target.value)
     setAddCity(false);
+
+  }
+
+  const displayForecast = (lat, lon) => {
+    fetch(fiveDayUrl + lat + "&lon=" + lon + "&appid=" + apiKey + "&units=imperial&exclude=hourly,minutely,current,alerts")
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        const daily = data.daily;
+      })
   }
 
   return (
     <div className="App">
-      <div className={addCity ? "backdrop" : "backdrop=hide"}></div>
+      <div onClick={() => { setAddCity(false) }}
+        className={addCity ? "backdrop" : "backdrop=hide"}></div>
       <Header city={city}
         setCity={setCity}
         addCity={addCity}
