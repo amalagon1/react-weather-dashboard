@@ -3,7 +3,6 @@ import React from 'react'
 const Current = ({ data, city }) => {
     // console.log(data);
     const icon = data.weather[0].icon;
-    console.log(icon)
     console.log(Math.floor(data['main']['temp']));
     return (
         <div className="card">

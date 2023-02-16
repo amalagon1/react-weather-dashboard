@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Search from './components/Search';
 import Current from './components/Current';
 import Header from './components/Header';
+import Forecast from './components/Forecast';
 import './App.css';
 
 function App() {
@@ -9,6 +10,8 @@ function App() {
   const [city, setCity] = useState("");
   const [data, setData] = useState();
   const [addCity, setAddCity] = useState(false);
+  const [currentCondition, setCurrentCondition] = useState("");
+  const [forecastData, setForecastData] = useState();
 
   const currentUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
   const fiveDayUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=";
@@ -37,6 +40,8 @@ function App() {
       .then(data => {
         console.log(data);
         const daily = data.daily;
+        setForecastData(daily);
+
       })
   }
 
@@ -51,6 +56,7 @@ function App() {
         displayCurrent={displayCurrent} />
       {addCity && <Search setCity={setCity} displayCurrent={displayCurrent} />}
       {data && <Current data={data} city={city} />}
+      {forecastData && <Forecast forecastData={forecastData} />}
     </div>
   );
 }

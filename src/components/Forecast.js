@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import ForecastCard from './ForecastCard';
 
-const Forecast = () => {
+const Forecast = ({ forecastData }) => {
     return (
-        <div>
-
+        <div className="forecast-container">
+            {forecastData && forecastData.map((forecast) =>
+                <ForecastCard
+                    icon={forecast.weather[0].icon}
+                    humidity={forecast.humidity} />)}
         </div>
     )
 }
