@@ -3,6 +3,7 @@ import Search from './components/Search';
 import Current from './components/Current';
 import Header from './components/Header';
 import Forecast from './components/Forecast';
+import Hourly from './components/Hourly';
 import './App.css';
 
 function App() {
@@ -12,6 +13,16 @@ function App() {
   const [addCity, setAddCity] = useState(false);
   const [currentCondition, setCurrentCondition] = useState("");
   const [forecastData, setForecastData] = useState();
+
+  var dayNames = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday'
+  ];
 
   const currentUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
   const fiveDayUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=";
@@ -35,16 +46,21 @@ function App() {
   }
 
   const displayForecast = (lat, lon) => {
-    fetch(fiveDayUrl + lat + "&lon=" + lon + "&appid=" + apiKey + "&units=imperial&exclude=hourly,minutely,current,alerts")
+    fetch(fiveDayUrl + lat + "&lon=" + lon + "&appid=" + apiKey + "&units=imperial&exclude=minutely,current,alerts")
       .then(response => response.json())
       .then(data => {
         console.log(data);
         const daily = data.daily;
+        const hourly = data.hourly;
+        const hours = (new Date(hourly[4].dt * 1000).getHours());
+        const currentHour = hours % 12;
+        console.log(currentHour)
         setForecastData(daily);
 
       })
   }
-
+  // const hello = JSON.stringify(new Date().getDay());
+  // console.log(dayNames.at(JSON.stringify(new Date().getDay())));
   return (
     <div className="App">
       <div onClick={() => { setAddCity(false) }}
@@ -56,7 +72,10 @@ function App() {
         displayCurrent={displayCurrent} />
       {addCity && <Search setCity={setCity} displayCurrent={displayCurrent} />}
       {data && <Current data={data} city={city} />}
-      {forecastData && <Forecast forecastData={forecastData} />}
+      <Hourly />
+      {forecastData && <Forecast
+        forecastData={forecastData}
+        dayNames={dayNames} />}
     </div>
   );
 }

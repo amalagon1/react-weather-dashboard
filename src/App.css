@@ -95,13 +95,25 @@ background: rgba(0, 0, 0, 0.685);
   width: 20px;
 }
 
+.card img{
+  height: 8rem;
+}
+
+.hourly-card{
+  height: 100px;
+  width: 100px;
+  border: solid white;
+}
+
 .card{
-  height: 250px;
+  text-align: center;
   width: 250px;
   margin: 20px auto;
   border-radius: 8px;
-  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.226), rgba(255,255,255,0.3));
-  border: solid white;
+  display: flex;
+  justify-content: center;
+   /* background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.226), rgba(255,255,255,0.3)); */
+  border: solid white; 
 }
 
 .forecast-container {
@@ -119,4 +131,12 @@ background: rgba(0, 0, 0, 0.685);
   border: solid black;
   position: relative;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.conditions{
+  display: flex;
+  align-items: center;
 }
