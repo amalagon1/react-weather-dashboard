@@ -13,16 +13,9 @@ function App() {
   const [addCity, setAddCity] = useState(false);
   const [currentCondition, setCurrentCondition] = useState("");
   const [forecastData, setForecastData] = useState();
+  const [hourlyData, setHourlyData] = useState();
 
-  var dayNames = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday'
-  ];
+
 
   const currentUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
   const fiveDayUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=";
@@ -52,10 +45,12 @@ function App() {
         console.log(data);
         const daily = data.daily;
         const hourly = data.hourly;
-        const hours = (new Date(hourly[4].dt * 1000).getHours());
-        const currentHour = hours % 12;
-        console.log(currentHour)
+        const hours = (new Date(hourly[2].dt * 1000));
+        // const currentHour = hours % 12;
+        console.log('hello')
+        console.log(hours);
         setForecastData(daily);
+        setHourlyData(hourly);
 
       })
   }
@@ -72,10 +67,21 @@ function App() {
         displayCurrent={displayCurrent} />
       {addCity && <Search setCity={setCity} displayCurrent={displayCurrent} />}
       {data && <Current data={data} city={city} />}
-      <Hourly />
+      <section className="hourly-container">
+        {hourlyData && hourlyData.map((hour) =>
+          <Hourly
+            hour={(new Date(hour.dt * 1000).getHours() % 12 || 12)}
+            amorpm={(new Date(hour.dt * 1000).getHours() >= 12 ? 'PM' : 'AM')}
+            icon={hour.weather[0].icon} />
+
+        )}
+      </section>
+      {/* {forecastData &&
+        <h2>8 day forecast</h2>} */}
+
       {forecastData && <Forecast
         forecastData={forecastData}
-        dayNames={dayNames} />}
+      />}
     </div>
   );
 }

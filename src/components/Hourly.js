@@ -1,12 +1,12 @@
 import React from 'react'
 
-const Hourly = () => {
+const Hourly = ({ hourlyData, hour, icon, amorpm }) => {
     return (
-        <div className="hourly-container">
-            <div className="hourly-card">
-                <h1>Hello</h1>
+        <div className="hourly-card">
+            <div className="time">
+                <h1>{hour} <span id="specific">{amorpm} </span></h1>
             </div>
-
+            <img id="icon-hour" src={"https://openweathermap.org/img/w/" + icon + ".png"}></img>
         </div>
     )
 }
