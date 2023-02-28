@@ -12,11 +12,13 @@ const Header = ({ city, addCity, setAddCity, setCity, displayCurrent }) => {
         <header>
             <nav className="mobile-nav">
                 <div className="mobile-nav_items">
+
                     <div className="burger">
                         <div className="line"></div>
                         <div className="line"></div>
                         <div className="line"></div>
                     </div>
+                    <h1>WeatherNow</h1>
                     <p onClick={clickHandler} className="add">+</p>
                     {/* <Search
                         city={city}

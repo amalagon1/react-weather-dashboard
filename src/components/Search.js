@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 
 
-const Search = ({ city, setCity, displayCurrent }) => {
+const Search = ({ cityData, setCity, displayCurrent }) => {
 
     // const key = AIzaSyCS0bb0F4WaMYYaJlP6mXf74N - eIg5TUws
 

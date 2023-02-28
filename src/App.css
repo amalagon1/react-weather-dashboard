@@ -20,7 +20,7 @@
 
 .App{
   height: 100vh;
-  background: var(--sunny);
+  /* background: var(--sunny); */
  /* overflow: hidden; */
   font-family: public sans, sans-serif;
   color: white;
@@ -48,13 +48,16 @@ background: rgba(0, 0, 0, 0.685);
 
 .mobile-nav{
   width: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  
   /* background-color: pink; */
 }
 
 .mobile-nav_items{
-  align-items: center;
+   align-items: center;
   display: flex;
   justify-content: space-between;
+  
   /* gap: 12rem; */
 }
 
@@ -62,6 +65,7 @@ background: rgba(0, 0, 0, 0.685);
   font-size: 2rem;
   margin-right: 5px;
   cursor: pointer;
+  align-self: flex-end;
 }
 
 .search{
@@ -94,7 +98,7 @@ background: rgba(0, 0, 0, 0.685);
   justify-content: center;
   gap: 4px;
   height: 30px;
- 
+ visibility: hidden;
   vertical-align: middle;
   margin-left: 5px;
   /* padding-left: 10px; */
@@ -112,6 +116,7 @@ background: rgba(0, 0, 0, 0.685);
 
 .hourly-container{
   width: 90%;
+  height: 95px;
   margin: 0 auto;
   display: flex;
   overflow-x: auto;
@@ -174,6 +179,27 @@ background: rgba(0, 0, 0, 0.685);
   align-items: center;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 
 @media(min-width:600px){
 
@@ -208,6 +234,13 @@ background: rgba(0, 0, 0, 0.685);
   }
   .forecast-container{
     background: transparent;
+  }
+  .modal{
+    width: 360px;
+    height: 400px;
+  }
+  .mobile-nav{
+    padding: 8px 0;
   }
 }
 
