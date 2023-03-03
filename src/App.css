@@ -10,6 +10,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: #050A30;
 }
 
 
@@ -111,7 +112,9 @@ background: rgba(0, 0, 0, 0.685);
 
 .card img{
   width: 8rem;
-  height: 8rem;
+  /* height: 8rem; */
+  image-rendering: auto;
+  image-rendering: crisp-edges;
 }
 
 .hourly-container{
@@ -151,9 +154,16 @@ background: rgba(0, 0, 0, 0.685);
    /* background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.226), rgba(255,255,255,0.3)); */
   /* border: solid white;  */
 }
+
 .forecast {
   margin-top: 1rem auto;
+  color: #050A30;
+  font-weight: bolder;
 }
+
+/* .forecast h2{
+  color: white;
+} */
 .forecast-container {
   background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.226), rgba(255,255,255,0.3));
   /* width: 250px; */
@@ -216,12 +226,21 @@ background: rgba(0, 0, 0, 0.685);
   .forecast-card{
     height: 200px;
     flex-shrink: 1;
-    border-radius: 5px;
+    border-radius: 18px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     width: auto;
     width: 130px;
+    background-color: rgba(129, 129, 156, 0.91);
+  }
+
+  .content-wrapper{
+    margin-top: 20px;
+  }
+
+  .day{
+    margin-top: 10px;
   }
 }
 

@@ -3,6 +3,7 @@ import React from 'react'
 const Current = ({ cityData, city }) => {
     // console.log(data);
     const icon = cityData.weather[0].icon;
+    console.log(icon);
     console.log(Math.floor(cityData['main']['temp']));
     return (
         <div className="card">
@@ -14,7 +15,7 @@ const Current = ({ cityData, city }) => {
                 <p>{cityData.weather[0].description}</p>
             </div>
             <div>
-                <img src={"https://openweathermap.org/img/w/" + icon + ".png"}></img>
+                <img src={"https://openweathermap.org/img/wn/" + icon + "@2x.png"}></img>
             </div>
         </div>
     )

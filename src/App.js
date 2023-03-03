@@ -40,14 +40,7 @@ function App() {
         let latestCondition = data.weather[0].main;
         console.log(latestCondition);
         setCurrentCondition(latestCondition);
-        // (currentCondition = "Clear" ? setBackground(Night) : setBackground(Cloudy));
-        // setBackground(latestCondition = "Clouds" ? Cloudy : Night);
-        currentCondition === "Snow" ? setBackground(Cloudy) : setBackground(Night);
         // latestCondition === "Cloudy" ? console.log('yes') : console.log("no");
-        // console.log(latestCondition === "Cloudy" ? 'yes' : 'no')
-
-
-
       })
     // setCity(e.target.value)
     setAddCity(false);
@@ -85,12 +78,20 @@ function App() {
       case "Rain":
         setBackground(Cloudy);
         break;
+      case "Mist":
+        setBackground(Cloudy);
+        break;
+      case "Haze":
+        setBackground(Cloudy);
+        break;
+      case "Clouds":
+        setBackground(Cloudy);
+        break;
       case "Clear":
         setBackground(Sunny);
         break;
       default:
         setBackground(Night);
-        break;
     }
   }, [currentCondition])
 
