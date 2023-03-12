@@ -11,6 +11,7 @@
   padding: 0;
   box-sizing: border-box;
   color: #050A30;
+  /* color: white; */
 }
 
 
@@ -127,6 +128,7 @@ background: rgba(0, 0, 0, 0.685);
  
 }
 
+
 /* .time{
   display: flex;
 } */
@@ -144,6 +146,15 @@ background: rgba(0, 0, 0, 0.685);
   background:  linear-gradient(to right bottom, rgba(255, 255, 255, 0.171), rgba(255, 255, 255, 0.329));
 }
 
+.hourly-condition {
+  display: flex;
+  align-items: center;
+}
+
+#icon-hour {
+  width: 46px;
+}
+
 .card{
   text-align: center;
   width: 250px;
@@ -157,7 +168,7 @@ background: rgba(0, 0, 0, 0.685);
 
 .forecast {
   margin-top: 1rem auto;
-  color: #050A30;
+  /* color: #050A30; */
   font-weight: bolder;
 }
 
@@ -186,6 +197,8 @@ background: rgba(0, 0, 0, 0.685);
 
 .conditions{
   display: flex;
+  flex-direction: column;
+  gap: 3px;
   align-items: center;
 }
 

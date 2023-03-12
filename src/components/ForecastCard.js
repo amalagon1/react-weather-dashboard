@@ -24,16 +24,17 @@ const ForecastCard = ({ id,
         <div className="forecast-card">
             {/* <img src={"https://openweathermap.org/img/w/" + icon + ".png"}></img> */}
             <h2 className="day">{date} </h2>
-            <div className="content-wrapper">
-                <div className="conditions">
-                    <p> {lowTemp} / {highTemp} º </p>
-                    <img src={"https://openweathermap.org/img/w/" + icon + ".png"}></img>
-
-                </div>
+            {/* <div className="content-wrapper"> */}
+            <div className="conditions">
+                <p> {lowTemp} / {highTemp} º </p>
                 <div className='description'>
                     <p>{condition}</p>
                 </div>
             </div>
+            <img src={"https://openweathermap.org/img/w/" + icon + ".png"}></img>
+
+
+            {/* </div> */}
         </div>
     )
 }

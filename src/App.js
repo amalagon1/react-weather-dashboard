@@ -58,9 +58,12 @@ function App() {
         console.log(data);
         const daily = data.daily;
         const hourly = data.hourly;
+        hourly.length = 24
         const hours = (new Date(hourly[2].dt * 1000));
         // const currentHour = hours % 12;
+        console.log(hourly);
         console.log(hours);
+
         setForecastData(daily);
         setHourlyData(hourly);
 
@@ -91,7 +94,7 @@ function App() {
         setBackground(Sunny);
         break;
       default:
-        setBackground(Night);
+        setBackground(Sunny);
     }
   }, [currentCondition])
 
@@ -118,7 +121,8 @@ function App() {
           <Hourly
             hour={(new Date(hour.dt * 1000).getHours() % 12 || 12)}
             amorpm={(new Date(hour.dt * 1000).getHours() >= 12 ? 'PM' : 'AM')}
-            icon={hour.weather[0].icon} />
+            icon={hour.weather[0].icon}
+            temp={Math.floor(hour.temp)} />
 
         )}
       </section>
