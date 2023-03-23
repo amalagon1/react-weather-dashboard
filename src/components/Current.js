@@ -12,6 +12,7 @@ const Current = ({ cityData, city }) => {
                 <h1>{city}</h1>
                 <h2>{Math.floor(cityData['main']['temp'])}°</h2>
                 <p>Feels like: {Math.floor(cityData['main']['feels_like'])}°</p>
+                <p>Humidity: {cityData['main']['humidity']} %</p>
                 <p>{cityData.weather[0].description}</p>
             </div>
             <div>
